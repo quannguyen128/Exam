@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+
 using Exam2.Models;
 using MathLibrary;
 
@@ -16,23 +17,21 @@ namespace Exam2.Controllers
             return View();
         }   
         [HttpPost]
-
         public IActionResult DoneCalculation(MathOperation model)
         {
             switch (model.Operator)
             {
-                case "Add":
-                model.Result = MathLib.Add(model.LeftOperand, model.RightOperand);
+                case "Plus":
+                model.Result = MathLib.Add(Convert.ToDecimal(model.LeftOperand), Convert.ToDecimal(model.RightOperand));
                 break;
-                case "Subtract":
-                model.Result = MathLib.subtract(model.LeftOperand, model.RightOperand);
-                
+                case "Minus":
+                model.Result = MathLib.subtract(Convert.ToDecimal(model.LeftOperand), Convert.ToDecimal(model.RightOperand));
                 break;
-                case "Divide":
-                model.Result = MathLib.Divide(model.LeftOperand, model.RightOperand);
+                case "Divided by":
+                model.Result = MathLib.Divide(Convert.ToDecimal(model.LeftOperand), Convert.ToDecimal(model.RightOperand));
                 break;
-                case "Multiply":
-                model.Result = MathLib.Multiply(model.LeftOperand, model.RightOperand);
+                case "Times":
+                model.Result = MathLib.Multiply(Convert.ToDecimal(model.LeftOperand), Convert.ToDecimal(model.RightOperand));
                 break;
                 default:
                 break;

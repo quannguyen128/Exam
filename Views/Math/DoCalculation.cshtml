@@ -1,21 +1,34 @@
 @model MathOperation
 
+
+ <!-- asp-action redirects to another page. you need to make another cshtml file to redirect to a "results" page. In this cas "DoneCalculation" (also found in the countroller as action methods) -->
  <form asp-controller="Math" asp-action="DoneCalculation" method="POST">
         <!--Borrowed from W3 school (froms) -->
 
   Left Operand :<br>
   <input type="text" asp-for="@Model.LeftOperand" >
   <br>
-  Right Operand
+  Right Operand: <br>
   <input type="text" asp-for="@Model.RightOperand" >
   <br>
-  Conversion Type:<br>
+  Arithmetic Type:<br>
   <select asp-for="@Model.Operator">
-      <option value = "Add">Add</option>
-      <option value = "Subrtract">Subrtract</option>
-      <option value = "Mutliply">Mutliply</option>
-      <option value = "Divide">Divide</option>     
+      <option value = "Plus">Add</option>
+      <option value = "Minus">Subrtract</option>
+      <option value = "Times">Mutliply</option>
+      <option value = "Divided by">Divide</option>     
   </select>
   <br><br>
   <input type="submit" value="Submit">
 </form> 
+
+<!-- <form asp-controller="Conversion" asp-action="DoConversion" method="POST">
+   borrowed some of this from: https://www.w3schools.com/html/html_forms.asp 
+  Value to Convert:<br>
+  <input type="text" asp-for="@Model.
+  <br>
+  Conversion Type:<br>
+  <input type="text" asp-for="@Model.
+  <br><br>
+  <input type="submit" value="Submit">
+</form> -->-->
